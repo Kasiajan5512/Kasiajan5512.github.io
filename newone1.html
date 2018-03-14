@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="newone.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Finance corner</title>
+
+
+
+
+</head>
+<body>
+
+  <header>
+  <div-class="container">
+  <div-class="jumbotron">
+    <h1>Finance corner</h1>
+
+<ul>
+    <li><a class="menu"; href="newone1.html">Charts</a></li>
+    <li>  <a class="menu1"; href="newone.html">News</a></li>
+    <li><a href="https://facebook.com" class="fa fa-facebook"></a></li>
+  <li>  <a href="https://twitter.com" class="fa fa-twitter"></a></li>
+  <li>  <a href="https://google.com" class="fa fa-google"></a></li>
+    <li><a href="https://linkedin.com/" !text-align = 'right'; class="fa fa-linkedin"></a></li>
+
+
+  </div>
+
+</div>
+</div>
+
+</header>
+
+<div class="all">
+ <div class="text-center">
+  <div class="container1" >
+  <h2>News in finance</h2>
+
+  <div id="anychart-embed-stock-event-markers-stock-chart-with-event-markers" class="anychart-embed anychart-embed-stock-event-markers-stock-chart-with-event-markers">
+  <script src="https://cdn.anychart.com/releases/8.1.0/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.1.0/js/anychart-ui.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.1.0/js/anychart-exports.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.1.0/js/anychart-stock.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/8.1.0/js/anychart-data-adapter.min.js"></script>
+  <div id="ac_style_stock-event-markers-stock-chart-with-event-markers" style="display:none;">
+  html, body, #container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      align: centre;
+  }
+  </div>
+  <script>(function(){
+  function ac_add_to_head(el){
+  	var head = document.getElementsByTagName('head')[0];
+  	head.insertBefore(el,head.firstChild);
+  }
+  function ac_add_link(url){
+  	var el = document.createElement('link');
+  	el.rel='stylesheet';el.type='text/css';el.media='all';el.href=url;
+  	ac_add_to_head(el);
+  }
+  function ac_add_style(css){
+  	var ac_style = document.createElement('style');
+  	if (ac_style.styleSheet) ac_style.styleSheet.cssText = css;
+  	else ac_style.appendChild(document.createTextNode(css));
+  	ac_add_to_head(ac_style);
+  }
+  ac_add_link('https://cdn.anychart.com/releases/8.1.0/css/anychart-ui.min.css');
+  ac_add_link('https://cdn.anychart.com/releases/8.1.0/fonts/css/anychart-font.min.css');
+  ac_add_style(document.getElementById("ac_style_stock-event-markers-stock-chart-with-event-markers").innerHTML);
+  ac_add_style(".anychart-embed-stock-event-markers-stock-chart-with-event-markers{width:600px;height:450px;}");
+  })();</script>
+  <div id="container"></div>
+  <script>
+  anychart.onDocumentReady(function () {
+      // The data used in this sample can be obtained from the CDN
+      // https://cdn.anychart.com/samples/stock-event-markers/stock-chart-with-event-markers/data.csv
+      anychart.data.loadCsvFile('https://cdn.anychart.com/samples/stock-event-markers/stock-chart-with-event-markers/data.csv', function (data) {
+          // create data table on loaded data
+          var dataTable = anychart.data.table();
+          dataTable.addData(data);
+
+          // map loaded data for the ohlc series
+          var mapping = dataTable.mapAs({'open': 1, 'high': 2, 'low': 3, 'close': 4, 'value': 7});
+
+          // create stock chart
+          var chart = anychart.stock();
+
+          // set chart title
+          chart.title('WTI Crude Oil Prices');
+
+          // create first plot on the chart and set settings
+          var plot = chart.plot(0);
+          plot.height('75%')
+              .yGrid(true)
+              .xGrid(true)
+              .yMinorGrid(true)
+              .xMinorGrid(true);
+
+          // create candlestick series
+          var series = plot.candlestick(mapping);
+          series.name('NYMEX Crude Oil Futures');
+          series.legendItem().iconType('rising-falling');
+
+          // set settings for event markers
+          var eventMarkers = plot.eventMarkers();
+          // set markers data
+          eventMarkers.data([
+              {date: '2001-09-11', description: 'Terrorist attack at WTC'},
+
+              {date: '2008-08-20', description: 'Global financial crisis'},
+
+              {date: '2014-12-01', description: 'Russian financial crisis'},
+
+          ]);
+
+          // create second plot
+          var volumePlot = chart.plot(1);
+          // set yAxis labels formatter
+          volumePlot.yAxis().labels().format('{%Value}{scale:(1000)(1)|(k)}');
+          // set crosshair y-label formatter
+          volumePlot.crosshair().yLabel().format('{%Value}{scale:(1000)(1)|(k)}');
+
+          // create volume series on the plot
+          var volumeSeries = volumePlot.column(mapping);
+          // set series settings
+          volumeSeries.name('Volume');
+
+          // create scroller series with mapped data
+          chart.scroller().area(mapping);
+
+          // set container id for the chart
+          chart.container('container');
+          // initiate chart drawing
+          chart.draw();
+
+          // create range picker
+          rangePicker = anychart.ui.rangePicker();
+          // init range picker
+          rangePicker.render(chart);
+
+          // create range selector
+          rangeSelector = anychart.ui.rangeSelector();
+          // init range selector
+          rangeSelector.render(chart);
+      });
+  });
+  </script>
+
+  </div>
+  <div class="newspapers">
+  <div class="container12">
+
+    <h2>Analysis of the stock price in the news</h2>
+    <ul !background-color: white;>
+<li>
+  <h4>2001/09/11</h4><a href=http://www.nytimes.com/2001/09/12/business/day-terror-federal-reserve-financial-world-left-reeling-attack.html><p>The New York Times</p>
+</li>
+<li>
+  <h4>2008/08/20</h4><a href=http://money.cnn.com/2009/01/07/markets/oil/index.htm><p>CNN Money</p></li>
+    <li>
+      <h4>2001/09/11</h4><a href=https://www.theguardian.com/business/2014/dec/16/falling-rouble-all-you-need-to-know><p>The Guardian</p>
+    </li>
+
+    <ul>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

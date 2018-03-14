@@ -1,0 +1,131 @@
+body {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  text-align: center;
+  background: url("https://timedotcom.files.wordpress.com/2016/11/gettyimages-668600179.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  margin: -70px -25px 0px -5px;
+  padding: 0;
+}
+
+a {
+    color: black;
+    padding-right: 20px;
+}
+
+a:hover {
+  background-color: grey;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Lato', sans-serif;
+  color: black;
+  text-shadow: 2px 2px 0px #261a0d;
+  margin-bottom: 100px;
+  padding-top: 50px;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  color: black;
+  margin-bottom: 50px;
+}
+
+h4 {
+  color: white;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li h4:hover {
+  background-color: inherit;
+}
+li a:hover {
+    background-color: #111;
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: right;
+  text-decoration: none;
+  margin: 5px 2px;
+  align-items: right;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  text-align: right;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.firstChild  {
+  float: left;
+   padding: 25px 25px 75px 100px;
+}
+.secondChild {
+  float: left;
+   padding: 25px 25px 75px 25px;
+}
+.thirdChild {
+  float:left;
+   padding: 25px 100px 75px 25px;
+}
+.container1 {
+  float: left;
+  padding: 15px;
+}
+.container12 {
+  align: center;
+  padding: 10px;
+  background-color: white;
+}
+.newspapers {
+  align: centre;
+}
+.all {
+  align:centre;
+}
